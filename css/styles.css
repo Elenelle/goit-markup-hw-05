@@ -54,7 +54,7 @@ p {
   color: var(--main-text-color);
   margin-bottom: 50px;
 }
-/*top-menu*/
+/*header*/
 .page-header {
   display: flex;
   align-items: center;
@@ -88,25 +88,43 @@ p {
 .logo-studio {
   color: var(--main-text-color);
 }
-.nav-sections:not(:last-child) {
+.nav-sections {
   margin-right: 305px;
-  margin-top: 32px;
-  margin-bottom: 32px;
+  padding: 0px;
 }
-.nav-item:not(:last-child) {
+.nav-sections .nav-item:not(:last-child) {
   margin-right: 50px;
 }
-.list-item {
-  font-style: normal;
+.nav-sections .list-item {
+  display: block;
+  color: var(--main-text-color);
   font-weight: 500;
   font-size: 14px;
-  line-height: 16px;
+  line-height: 1.14;
   letter-spacing: 0.02em;
-  color: var(--main-text-color);
+  text-decoration: none;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  transition: 250ms color cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 }
-.list-item:hover,
-.list-item:focus {
+.nav-sections .list-item:hover,
+.nav-sections .list-item:focus {
   color: var(--accent-color);
+}
+.nav-sections .list-item.current {
+  color: var(--accent-color);
+}
+.nav-sections .list-item.current::after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
 }
 .nav-sections-contacts {
   display: flex;
@@ -237,11 +255,13 @@ p {
 }
 .directions-section {
   display: flex;
+  justify-content: center;
   width: 1170px;
-  margin-top: 50px;
+  margin: 0 auto;
 }
 .directions-item {
   width: calc((100% - 30px * 2) / 3);
+  position: relative;
 }
 .directions-item:not(:last-child) {
   margin-right: 30px;
@@ -253,18 +273,23 @@ p {
   height: 294px;
 }
 .directions-section-subtitle {
+  position: absolute;
+  top: 224px;
+  right: 0;
+  margin: 0;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  width: 370px;
+  height: 70px;
+  background-color: #2f303a;
+  opacity: 80%;
+  color: var(--white-color);
   font-weight: bold;
   font-size: 14px;
   line-height: 16px;
   text-align: center;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  padding-top: 27px;
-  padding-bottom: 27px;
-  color: var(--white-color);
-  background-color: #2f303a;
-  opacity: 80%;
-  margin-top: -70px;
 }
 /*team*/
 .team-section-background {
